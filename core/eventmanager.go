@@ -1,18 +1,20 @@
 package core
 
-// TODO separar num pacote diferente o Observer Pattern
+// TODO: separate Observer Pattern into a different package
 type Listener struct {
 	Event string
 }
-// qlq objeto que implementar esse método será um listener
-// verificado em tempo de compilação(TODO testar)
-func (lis *Listener) Listen(eventData interface{}){}
+
+// any object that implements this method will be a listener
+// verified at compile time (TODO: test)
+func (lis *Listener) Listen(eventData interface{}) {}
 
 type EventManager struct {
 	Listeners []Listener
 }
+
 func (e *EventManager) subscribe(event string, l Listener) {
-	// armazena o evento no qual o objeto está se inscrevendo
+	// stores the event in which the object is subscribing
 	l.Event = event
 	e.Listeners = append(e.Listeners, l)
 }

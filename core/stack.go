@@ -1,6 +1,5 @@
 package core
 
-
 type Stack struct {
 	items []int
 }
@@ -27,6 +26,6 @@ func (s *Stack) Pop() (int, error) {
 	}
 
 	lastOne := s.items[len(s.items)-1]
-	s.items = append(s.items[:len(s.items)-1])
+	s.items = s.items[:len(s.items)-1]
 	return lastOne, nil
 }
